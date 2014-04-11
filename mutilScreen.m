@@ -55,17 +55,21 @@ function mutilScreen_OpeningFcn(hObject, eventdata, handles, varargin)
 % Choose default command line output for mutilScreen
 handles.output = hObject;
 
+% position setting for the panels, using normalized unit.
+x = 0.10; y = 0.1;
+w = 0.70; h = 0.70; 
+
 handles.panel_1 = uipanel('Title','Panel_1','FontSize',12,...
              'BackgroundColor','white',...
-             'Position',[.15 .1 .67 .67], 'Visible', 'on', 'tag', 'panel_1' );
+             'Position', [x,y,w,h], 'Visible', 'on', 'tag', 'panel_1' );
 
 handles.panel_2 = uipanel('Title','Panel_2','FontSize',12,...
              'BackgroundColor','red',...
-             'Position',[.15 .1 .67 .67], 'Visible', 'off', 'tag', 'panel_2' );
+             'Position', [x,y,w,h], 'Visible', 'off', 'tag', 'panel_2' );
 
 handles.panel_3 = uipanel('Title','Panel_3','FontSize',12,...
              'BackgroundColor','green',...
-             'Position',[.15 .1 .67 .67], 'Visible', 'off', 'tag', 'panel_3' );
+             'Position', [x,y,w,h], 'Visible', 'off', 'tag', 'panel_3' );
 
 % Update handles structure
 guidata(hObject, handles);
@@ -91,11 +95,9 @@ function pb_show_panel_1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-%handles = guihandles;
 set(handles.panel_1, 'visible', 'on');
 set(handles.panel_2, 'visible', 'off');
 set(handles.panel_3, 'visible', 'off');
-
 
 % --- Executes on button press in pb_show_panel_2.
 function pb_show_panel_2_Callback(hObject, eventdata, handles)
@@ -103,7 +105,6 @@ function pb_show_panel_2_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-%handles = guihandles;
 set(handles.panel_1, 'visible', 'off');
 set(handles.panel_2, 'visible', 'on');
 set(handles.panel_3, 'visible', 'off');
@@ -113,7 +114,7 @@ function pb_show_panel_3_Callback(hObject, eventdata, handles)
 % hObject    handle to pb_show_panel_3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-%handles = guihandles;
+
 set(handles.panel_1, 'visible', 'off');
 set(handles.panel_2, 'visible', 'off');
 set(handles.panel_3, 'visible', 'on');
